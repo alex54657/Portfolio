@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朱亦凡 - 海外新媒体运营作品集</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            background: #f5f7fa; 
+        }
+        
+        /* Header */
+        .header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 50px 20px; 
+            text-align: center; 
+        }
+        .header h1 { font-size: 36px; margin-bottom: 10px; font-weight: 700; }
+        .header .subtitle { font-size: 18px; opacity: 0.95; margin-bottom: 25px; }
+        .header .stats { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            flex-wrap: wrap; 
+            margin-top: 25px; 
+        }
+        .stat-item { text-align: center; min-width: 100px; }
+        .stat-item .number { font-size: 28px; font-weight: bold; display: block; }
+        .stat-item .label { font-size: 13px; opacity: 0.9; margin-top: 5px; }
+        
+        /* Container */
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
+        
+        .intro { 
+            text-align: center; 
+            margin-bottom: 40px; 
+        }
+        .intro h2 { 
+            color: #2c3e50; 
+            margin-bottom: 10px; 
+            font-size: 28px; 
+        }
+        .intro p { 
+            color: #666; 
+            margin-bottom: 8px; 
+            font-size: 15px; 
+        }
+        .intro .note { 
+            color: #999; 
+            font-size: 14px; 
+        }
+        
+        /* Portfolio Card */
+        .portfolio-card { 
+            background: white; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+            margin-bottom: 30px;
+            transition: box-shadow 0.3s;
+        }
+        .portfolio-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        /* Card Header */
+        .card-header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 20px 25px; 
+            position: relative; 
+        }
+        .card-header .platform { 
+            font-size: 12px; 
+            opacity: 0.9; 
+            margin-bottom: 5px; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card-header h3 { 
+            font-size: 20px; 
+            line-height: 1.4; 
+            font-weight: 600;
+        }
+        .priority-badge { 
+            position: absolute; 
+            top: 15px; 
+            right: 20px; 
+            background: #ffc107; 
+            color: #000; 
+            padding: 6px 12px; 
+            border-radius: 20px; 
+            font-size: 11px; 
+            font-weight: bold; 
+        }
+        
+        /* Card Body */
+        .card-body { 
+            padding: 25px; 
+        }
+        
+        /* Media Section */
+        .media-section { 
+            margin-bottom: 25px; 
+        }
+        .media-section video { 
+            width: 100%; 
+            border-radius: 8px; 
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .media-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 12px; 
+            margin-top: 12px; 
+        }
+        .media-grid img { 
+            width: 100%; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Metrics */
+        .metrics { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+            gap: 15px; 
+            margin-bottom: 25px; 
+        }
+        .metric-item { 
+            text-align: center; 
+            padding: 18px; 
+            background: #f8f9fa; 
+            border-radius: 8px; 
+        }
+        .metric-item .value { 
+            font-size: 26px; 
+            font-weight: bold; 
+            color: #667eea; 
+            display: block; 
+        }
+        .metric-item .label { 
+            font-size: 13px; 
+            color: #666; 
+            margin-top: 5px; 
+        }
+        
+        /* Highlight Box */
+        .highlight-box { 
+            background: #fff3cd; 
+            border-left: 4px solid #ffc107; 
+            padding: 15px 18px; 
+            margin-bottom: 20px; 
+            border-radius: 4px; 
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .highlight-box strong { 
+            color: #856404; 
+            font-weight: 600;
+        }
+        
+        /* Section */
+        .section { 
+            margin-bottom: 20px; 
+        }
+        .section-title { 
+            font-size: 15px; 
+            font-weight: 600; 
+            color: #667eea; 
+            margin-bottom: 10px; 
+        }
+        .section-content { 
+            font-size: 14px; 
+            color: #555; 
+            line-height: 1.7; 
+        }
+        .section-content ul { 
+            list-style: none; 
+            padding-left: 0; 
+        }
+        .section-content li { 
+            padding: 6px 0; 
+            padding-left: 22px; 
+            position: relative; 
+        }
+        .section-content li:before { 
+            content: "•"; 
+            position: absolute; 
+            left: 5px; 
+            color: #667eea; 
+            font-weight: bold; 
+            font-size: 16px;
+        }
+        
+        /* Tags */
+        .tags { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 8px; 
+            margin-top: 20px; 
+        }
+        .tag { 
+            background: #e3f2fd; 
+            color: #1976d2; 
+            padding: 6px 14px; 
+            border-radius: 15px; 
+            font-size: 12px; 
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        .footer { 
+            text-align: center; 
+            padding: 40px 20px; 
+            background: #2c3e50; 
+            color: white; 
+            margin-top: 60px; 
+        }
+        .footer h3 { 
+            margin-bottom: 15px; 
+            font-size: 22px;
+        }
+        .footer .contact { 
+            margin-top: 20px; 
+            font-size: 14px; 
+        }
+        .footer .contact span { 
+            margin: 0 15px; 
+            display: inline-block;
+        }
+        .footer .tagline {
+            margin-top: 20px; 
+            font-size: 14px; 
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 28px; }
+            .header .subtitle { font-size: 16px; }
+            .header .stats { gap: 20px; }
+            .stat-item .number { font-size: 24px; }
+            .intro h2 { font-size: 24px; }
+            .card-header h3 { font-size: 18px; }
+            .priority-badge { 
+                position: static; 
+                display: inline-block; 
+                margin-top: 10px; 
+            }
+            .metrics { grid-template-columns: 1fr; }
+            .media-grid { grid-template-columns: 1fr; }
+            .footer .contact span { 
+                display: block; 
+                margin: 8px 0; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>朱亦凡</h1>
+        <div class="subtitle">海外新媒体运营作品集</div>
+        <div class="stats">
+            <div class="stat-item">
+                <span class="number">380万</span>
+                <span class="label">TikTok最高播放量</span>
+            </div>
+            <div class="stat-item">
+                <span class="number">150万</span>
+                <span class="label">Instagram最高播放量</span>
+            </div>
+            <div class="stat-item">
+                <span class="number">5.78</span>
+                <span class="label">最高ROAS</span>
+            </div>
+            <div class="stat-item">
+                <span class="number">70%</span>
+                <span class="label">销售额增长</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="intro">
+            <h2>核心案例展示</h2>
+            <p>2.5年海外社媒实战经验 | TikTok/Instagram爆款内容打造 | 销售转化优化</p>
+            <p class="note">✨ 案例按与本岗位相关度排序</p>
+        </div>
+        
+        <!-- Case 1: TikTok KOL -->
+        <div class="portfolio-card">
+            <div class="card-header">
+                <span class="priority-badge">最匹配JD</span>
+                <div class="platform">TikTok | 欧美娃娃屋垂直市场</div>
+                <h3>iLAND × 头部KOL置换合作 - 380万播放爆款</h3>
+            </div>
+            <div class="card-body">
+                <div class="media-section">
+                    <video controls>
+                        <source src="../../../data/personal/portfolio/KOL/TikTok-iLAND-KOL-合作视频.mp4" type="video/mp4">
+                    </video>
+                    <div class="media-grid">
+                        <img src="../../../data/personal/portfolio/KOL/TikTok-iLAND-KOL-播放量.png" alt="播放量数据">
+                        <img src="../../../data/personal/portfolio/KOL/TikTok-iLAND-KOL-互动量.png" alt="互动量数据">
+                    </div>
+                </div>
+                
+                <div class="metrics">
+                    <div class="metric-item">
+                        <span class="value">380万</span>
+                        <span class="label">播放量</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="value">323K</span>
+                        <span class="label">互动量</span>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>为什么匹配JD：</strong>TikTok平台运营 + 内容策划能力 + KOL合作经验 + 爆款内容打造
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">挑战</div>
+                    <div class="section-content">
+                        目标KOL对中国品牌有抵触情绪，已读不回私信/邮件/评论，但曾在视频中使用过我们产品却故意不提及品牌。
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">策略</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>以产品为饵，避免过度强调品牌</li>
+                            <li>用社媒内容吸引KOL注意，成功推送到她面前，获得回关</li>
+                            <li>2个月开发期中建立信任，来回交流十几封邮件</li>
+                            <li>引导而非强制创作方向，共同构思吸引人的内容</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">成果</div>
+                    <div class="section-content">
+                        KOL主动认真创作，从开头到中间全程夸赞产品，视频播放量380万，互动量323K，成为本类目近1年自然流表现最佳的商业合作内容。
+                    </div>
+                </div>
+                
+                <div class="tags">
+                    <span class="tag">TikTok运营</span>
+                    <span class="tag">内容策划</span>
+                    <span class="tag">KOL开发</span>
+                    <span class="tag">380万播放</span>
+                    <span class="tag">免费置换</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Case 2: Instagram -->
+        <div class="portfolio-card">
+            <div class="card-header">
+                <span class="priority-badge">高度匹配</span>
+                <div class="platform">Instagram | 国际旅游推广</div>
+                <h3>Trip.com Instagram 爆款内容系列</h3>
+            </div>
+            <div class="card-body">
+                <div class="media-section">
+                    <div class="media-grid">
+                        <img src="../../../data/personal/portfolio/social-media/INS-Trip-1.5M.jpg" alt="150万播放">
+                        <img src="../../../data/personal/portfolio/social-media/INS-Trip-578K.jpg" alt="578K播放">
+                        <img src="../../../data/personal/portfolio/social-media/INS-Trip-411K.jpg" alt="411K播放">
+                        <img src="../../../data/personal/portfolio/social-media/INS-Trip-309K.jpg" alt="309K播放">
+                    </div>
+                </div>
+                
+                <div class="metrics">
+                    <div class="metric-item">
+                        <span class="value">150万</span>
+                        <span class="label">最高播放量</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="value">TOP榜单</span>
+                        <span class="label">月度素材</span>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>为什么匹配JD：</strong>Instagram平台运营 + 0-1冷启动 + 数据分析优化 + 持续爆款内容
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">挑战</div>
+                    <div class="section-content">
+                        账号0-1冷启动阶段，需要快速建立内容策略并持续产出高转化内容。
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">策略</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>独立负责全流程：选题策划、拍摄剪辑、发布排期、数据优化</li>
+                            <li>基于Instagram后台数据复盘持续迭代内容策略</li>
+                            <li>持续输出高播放量内容，而非单次爆款</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">成果</div>
+                    <div class="section-content">
+                        打造150万+播放爆款，持续产出578K、411K、309K等高播放量内容，多次登榜Trip月度TOP素材榜单。
+                    </div>
+                </div>
+                
+                <div class="tags">
+                    <span class="tag">Instagram运营</span>
+                    <span class="tag">0-1冷启动</span>
+                    <span class="tag">数据驱动</span>
+                    <span class="tag">150万播放</span>
+                    <span class="tag">持续爆款</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Case 3: Facebook -->
+        <div class="portfolio-card">
+            <div class="card-header">
+                <div class="platform">Facebook Group | 欧美娃娃屋垂直社群</div>
+                <h3>iLAND Facebook社群 - 0花费月流量123K</h3>
+            </div>
+            <div class="card-body">
+                <div class="media-section">
+                    <div class="media-grid">
+                        <img src="../../../data/personal/portfolio/social-media/FB-iLAND-创始人号月数据.png" alt="创始人号数据">
+                        <img src="../../../data/personal/portfolio/social-media/FB-iLAND-官号月数据.png" alt="官号数据">
+                        <img src="../../../data/personal/portfolio/social-media/FB-iLAND-UGC寻找一生中养过的宠物.png" alt="UGC案例1">
+                        <img src="../../../data/personal/portfolio/social-media/FB-iLAND-UGC地毯.png" alt="UGC案例2">
+                    </div>
+                </div>
+                
+                <div class="metrics">
+                    <div class="metric-item">
+                        <span class="value">123K</span>
+                        <span class="label">月流量</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="value">0元</span>
+                        <span class="label">投放成本</span>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>为什么匹配JD：</strong>社交媒体账号运营 + 内容策划 + 用户互动提升
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">挑战</div>
+                    <div class="section-content">
+                        在垂直小众品类中，0预算获取精准流量，并激活社群UGC互动。
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">策略</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>官号 + 创始人号双账号运营，建立品牌人格化</li>
+                            <li>不投流、不送样，纯靠内容和社群运营获取自然流量</li>
+                            <li>设计UGC话题激发用户情感共鸣和主动分享</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">成果</div>
+                    <div class="section-content">
+                        单月自然流量123.65K，互动量1448，成为本品类最活跃的品牌社群之一。
+                    </div>
+                </div>
+                
+                <div class="tags">
+                    <span class="tag">Facebook运营</span>
+                    <span class="tag">社群运营</span>
+                    <span class="tag">0预算</span>
+                    <span class="tag">UGC激活</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Case 4: TVC -->
+        <div class="portfolio-card">
+            <div class="card-header">
+                <div class="platform">Meta Ads | 欧美男性潮牌饰品</div>
+                <h3>GentleBands TVC广告 - ROAS 5.78</h3>
+            </div>
+            <div class="card-body">
+                <div class="media-section">
+                    <video controls style="margin-bottom: 15px;">
+                        <source src="../../../data/personal/portfolio/videos/Meta-GentleBands-TVC-1.mp4" type="video/mp4">
+                    </video>
+                    <video controls>
+                        <source src="../../../data/personal/portfolio/videos/Meta-GentleBands-TVC-2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+                <div class="metrics">
+                    <div class="metric-item">
+                        <span class="value">5.78</span>
+                        <span class="label">最高ROAS</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="value">2.96倍</span>
+                        <span class="label">账户均值</span>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>为什么匹配JD：</strong>确保销售转化 + 数据分析优化 + 视频制作能力
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">挑战</div>
+                    <div class="section-content">
+                        账户ROAS长期在2以下徘徊，需要制作高转化素材突破瓶颈。
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">策略</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>独立完成全流程：脚本策划、素材寻找、剪辑成片</li>
+                            <li>针对欧美男性受众偏好，设计情感化叙事</li>
+                            <li>测试多种素材形式，实现全格式盈利覆盖</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">成果</div>
+                    <div class="section-content">
+                        TVC-1创下公司近半年最高ROAS 5.78，Purchase ROAS 4.01。所有素材类型ROI全跑正。
+                    </div>
+                </div>
+                
+                <div class="tags">
+                    <span class="tag">销售转化</span>
+                    <span class="tag">ROAS 5.78</span>
+                    <span class="tag">视频制作</span>
+                    <span class="tag">数据优化</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Case 5: 大马士革钢 -->
+        <div class="portfolio-card">
+            <div class="card-header">
+                <div class="platform">Meta Ads | 欧美男性潮牌饰品</div>
+                <h3>GentleBands 大马士革钢TVC - 情感化叙事</h3>
+            </div>
+            <div class="card-body">
+                <div class="media-section">
+                    <video controls>
+                        <source src="../../../data/personal/portfolio/videos/Meta-GentleBands-TVC-3大马士革钢.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>核心能力展示：</strong>内容策划 + 脚本撰写 + 情感化叙事
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">挑战</div>
+                    <div class="section-content">
+                        如何将技术性材质（大马士革钢）包装成欧美用户偏好的情感叙事。
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">策略</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>避免技术参数堆砌，转而讲述材质背后的故事和情感价值</li>
+                            <li>针对欧美男性受众，强调工艺传承、独特性、个性表达</li>
+                            <li>视觉呈现上突出材质纹理和质感，配合情感化文案</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tags">
+                    <span class="tag">内容策划</span>
+                    <span class="tag">脚本撰写</span>
+                    <span class="tag">情感化叙事</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Case 6: AIGC -->
+        <div class="portfolio-card">
+            <div class="card-header">
+                <div class="platform">Google Ads | 欧美男性潮牌饰品</div>
+                <h3>GentleBands AIGC Ending Card - 0-1特效制作</h3>
+            </div>
+            <div class="card-body">
+                <div class="media-section">
+                    <video controls style="margin-bottom: 15px;">
+                        <source src="../../../data/personal/portfolio/videos/AIGC-EndingCard-1.mp4" type="video/mp4">
+                    </video>
+                    <video controls>
+                        <source src="../../../data/personal/portfolio/videos/AIGC-EndingCard-2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>核心能力展示：</strong>工具使用 + 快速学习 + 0-1能力
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">挑战</div>
+                    <div class="section-content">
+                        公司缺乏Ending Card特效制作能力，需要快速低成本解决方案。
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">策略</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>利用AIGC工具（Google Nano Banana、即梦、Google VEO）生成特效</li>
+                            <li>快速迭代多个版本，测试不同视觉风格</li>
+                            <li>0-1建立公司Ending Card制作能力</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tags">
+                    <span class="tag">AIGC工具</span>
+                    <span class="tag">特效制作</span>
+                    <span class="tag">快速学习</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <h3>联系方式</h3>
+        <div class="contact">
+            <span>📧 13482506302@163.com</span>
+            <span>📱 13482506302</span>
+            <span>📍 上海</span>
+        </div>
+        <p class="tagline">
+            2.5年海外新媒体运营经验 | TikTok/Instagram运营专家 | 爆款内容打造 | 销售转化优化
+        </p>
+    </div>
+</body>
+</html>
