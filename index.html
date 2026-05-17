@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海外社媒运营作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* 顶部悬浮导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 2rem;
+        }
+
+        /* 首页介绍区 */
+        .hero {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .capabilities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .capability-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .capability-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .capability-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* 作品卡片 */
+        .portfolio-item {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .portfolio-title {
+            flex: 1;
+        }
+
+        .portfolio-title h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .metrics {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .metrics h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .metric-item {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section h3 {
+            font-size: 1.2rem;
+            color: #667eea;
+            margin-bottom: 0.8rem;
+        }
+
+        .content-section p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-section li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+        }
+
+        .content-section li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* 视频容器 */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            margin: 1rem 0;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* 图片网格 */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 标签 */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .portfolio-item {
+                padding: 1.5rem;
+            }
+
+            .portfolio-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 滚动平滑 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 移动端导航 */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="nav-brand">海外社媒运营作品集</div>
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">首页</a></li>
+                <li><a href="#instagram">Instagram运营</a></li>
+                <li><a href="#facebook">Facebook社群</a></li>
+                <li><a href="#tvc">广告素材</a></li>
+                <li><a href="#aigc">AI工具应用</a></li>
+                <li><a href="#kol">KOL合作</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 首页介绍 -->
+        <section id="hero" class="hero">
+            <h1>海外社媒运营作品集</h1>
+            <p class="hero-subtitle">2.5年海外社媒运营经验 | 多平台内容运营 | 数据驱动优化</p>
+            
+            <div class="capabilities">
+                <div class="capability-card">
+                    <h3>📱 多平台运营</h3>
+                    <p>Instagram、Facebook、TikTok等主流平台的日常运营与内容发布</p>
+                </div>
+                <div class="capability-card">
+                    <h3>📊 数据驱动优化</h3>
+                    <p>基于数据分析持续优化内容策略，提升互动率和转化效果</p>
+                </div>
+                <div class="capability-card">
+                    <h3>🎬 内容制作能力</h3>
+                    <p>独立完成图文、短视频的策划、制作与发布</p>
+                </div>
+                <div class="capability-card">
+                    <h3>🤖 AI工具应用</h3>
+                    <p>熟练使用AI工具进行内容创作，提升制作效率</p>
+                </div>
+                <div class="capability-card">
+                    <h3>💬 社群互动维护</h3>
+                    <p>及时回复用户评论和私信，维护活跃的社区氛围</p>
+                </div>
+                <div class="capability-card">
+                    <h3>🎯 热点捕捉能力</h3>
+                    <p>关注海外社媒热点趋势，快速识别优质内容</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 作品1: Instagram运营 -->
+        <section id="instagram" class="portfolio-item">
+            <div class="portfolio-header">
+                <div class="portfolio-title">
+                    <h2>Trip.com Instagram 爆款内容系列</h2>
+                    <div class="portfolio-meta">
+                        <span class="meta-item">📱 Instagram</span>
+                        <span class="meta-item">🌍 国际旅游推广</span>
+                        <span class="meta-item">📅 2025.09 - 2025.12</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics">
+                <h3>核心数据</h3>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-value">150万+</div>
+                        <div class="metric-label">最高播放量</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">4个</div>
+                        <div class="metric-label">爆款内容</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">460%</div>
+                        <div class="metric-label">月均播放增长</div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="image-grid">
+                <img src="../../../social-media/INS-Trip-1.5M.jpg" alt="150万播放爆款">
+                <img src="../../../social-media/INS-Trip-578K.jpg" alt="578K播放">
+                <img src="../../../social-media/INS-Trip-411K.jpg" alt="411K播放">
+                <img src="../../../social-media/INS-Trip-309K.jpg" alt="309K播放">
+            </div>
+
+            <div class="content-section">
+                <h3>项目背景</h3>
+                <p>负责Trip.com Instagram账号的0-1冷启动全流程运营，需要快速建立内容策略并持续产出高转化内容。</p>
+            </div>
+
+            <div class="content-section">
+                <h3>运营策略</h3>
+                <ul>
+                    <li>独立负责全流程：选题策划、拍摄剪辑、发布排期、数据优化</li>
+                    <li>基于数据复盘持续迭代内容策略，提升分发效率与转化能力</li>
+                    <li>建立内容分层体系：爆款层20% + 日常层60% + 互动层20%</li>
+                    <li>使用AI工具辅助内容创作，提升制作效率</li>
+                    <li>每日监控关键数据指标，低于基准线立即优化</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>核心成果</h3>
+                <ul>
+                    <li>打造150万+播放爆款，持续产出578K、411K、309K等高播放量内容</li>
+                    <li>账号月均播放量增长460%，高转化表现使其成为持续追投的TOP广告素材</li>
+                    <li>多次登榜Trip月度TOP素材榜单，成为项目周期内最佳操盘表现</li>
+                    <li>建立了可复用的内容SOP和数据优化流程</li>
+                </ul>
+            </div>
+
+            <div class="tags">
+                <span class="tag">0-1冷启动</span>
+                <span class="tag">150万播放</span>
+                <span class="tag">持续爆款</span>
+                <span class="tag">数据驱动</span>
+                <span class="tag">Instagram</span>
+            </div>
+        </section>
+
+        <!-- 作品2: Facebook社群 -->
+        <section id="facebook" class="portfolio-item">
+            <div class="portfolio-header">
+                <div class="portfolio-title">
+                    <h2>iLAND Facebook社群 - 0花费月流量123K</h2>
+                    <div class="portfolio-meta">
+                        <span class="meta-item">📱 Facebook Group</span>
+                        <span class="meta-item">🌍 欧美娃娃屋垂直社群</span>
+                        <span class="meta-item">📅 2024.07 - 2025.08</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics">
+                <h3>核心数据</h3>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-value">123K</div>
+                        <div class="metric-label">月自然流量</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">0花费</div>
+                        <div class="metric-label">投放+giveaway</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">1736%</div>
+                        <div class="metric-label">月均流量增长</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">4.2%</div>
+                        <div class="metric-label">互动率</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-grid">
+                <img src="../../../social-media/FB-iLAND-创始人号月数据.png" alt="创始人号月数据">
+                <img src="../../../social-media/FB-iLAND-官号月数据.png" alt="官号月数据">
+                <img src="../../../social-media/FB-iLAND-UGC寻找一生中养过的宠物.png" alt="UGC案例1">
+                <img src="../../../social-media/FB-iLAND-UGC地毯.png" alt="UGC案例2">
+            </div>
+
+            <div class="content-section">
+                <h3>项目背景</h3>
+                <p>在垂直小众品类中，0预算获取精准流量，并激活社群UGC互动。</p>
+            </div>
+
+            <div class="content-section">
+                <h3>运营策略</h3>
+                <ul>
+                    <li>官号 + 创始人号双账号运营，建立品牌人格化</li>
+                    <li>不投流、不送样，纯靠内容和社群运营获取自然流量</li>
+                    <li>设计UGC话题激发用户情感共鸣和主动分享</li>
+                    <li>内容定位：70%教育型 + 20%娱乐型 + 10%产品型</li>
+                    <li>加入50+相关Groups，每天1小时回答问题建立信任</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>核心成果</h3>
+                <ul>
+                    <li>0预算实现月流量123.65K，月均自然流量增长1736%</li>
+                    <li>互动率4.2%（行业benchmark 2-3%），成为本品类高互动率的品牌账号</li>
+                    <li>用户主动分享UGC内容，形成良性社群生态</li>
+                    </ul>
+            </div>
+
+            <div class="tags">
+                <span class="tag">社群运营</span>
+                <span class="tag">0预算</span>
+                <span class="tag">UGC激活</span>
+                <span class="tag">精准流量</span>
+                <span class="tag">Facebook</span>
+            </div>
+        </section>
+
+        <!-- 作品3: TVC广告素材 -->
+        <section id="tvc" class="portfolio-item">
+            <div class="portfolio-header">
+                <div class="portfolio-title">
+                    <h2>GentleBands TVC广告系列</h2>
+                    <div class="portfolio-meta">
+                        <span class="meta-item">📱 Meta Ads</span>
+                        <span class="meta-item">🌍 欧美男性潮牌饰品</span>
+                        <span class="meta-item">📅 2026.03 - 2026.04</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics">
+                <h3>核心数据</h3>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-value">5.78</div>
+                        <div class="metric-label">最高ROAS</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">4.01</div>
+                        <div class="metric-label">Purchase ROAS</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">2.96倍</div>
+                        <div class="metric-label">超账户均值</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">全格式</div>
+                        <div class="metric-label">盈利覆盖</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <video controls>
+                    <source src="../../../videos/Meta-GentleBands-TVC-1.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            </div>
+
+            <div class="video-container">
+                <video controls>
+                    <source src="../../../videos/Meta-GentleBands-TVC-2.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            </div>
+
+            <div class="video-container">
+                <video controls>
+                    <source src="../../../videos/Meta-GentleBands-TVC-3大马士革钢.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            </div>
+
+            <div class="content-section">
+                <h3>项目背景</h3>
+                <p>账户ROAS长期在2以下徘徊，需要制作高转化素材突破瓶颈。</p>
+            </div>
+
+            <div class="content-section">
+                <h3>制作策略</h3>
+                <ul>
+                    <li>独立完成全流程：脚本策划、素材寻找、剪辑成片</li>
+                    <li>针对欧美男性受众偏好，设计情感化叙事而非单纯产品展示</li>
+                    <li>测试多种素材形式，实现全格式盈利覆盖</li>
+                    <li>大马士革钢TVC：将技术性材质转化为情感化叙事</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>核心成果</h3>
+                <ul>
+                    <li>TVC-1创下公司近半年最高ROAS 5.78，Purchase ROAS 4.01</li>
+                    <li>TVC-2 ROAS 4.79，Purchase ROAS 2.85，均远超账户均值1.95</li>
+                    <li>所有素材类型ROI全跑正，实现全格式盈利覆盖</li>
+                    <li>展示了脚本策划、情感化叙事和受众洞察能力</li>
+                </ul>
+            </div>
+
+            <div class="tags">
+                <span class="tag">TVC制作</span>
+                <span class="tag">ROAS 5.78</span>
+                <span class="tag">Meta Ads</span>
+                <span class="tag">高转化素材</span>
+                <span class="tag">情感化叙事</span>
+            </div>
+        </section>
+
+        <!-- 作品4: AIGC应用 -->
+        <section id="aigc" class="portfolio-item">
+            <div class="portfolio-header">
+                <div class="portfolio-title">
+                    <h2>GentleBands AIGC Ending Card</h2>
+                    <div class="portfolio-meta">
+                        <span class="meta-item">📱 Google Ads</span>
+                        <span class="meta-item">🌍 欧美男性潮牌饰品</span>
+                        <span class="meta-item">📅 2026.03 - 2026.04</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics">
+                <h3>核心成果</h3>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-value">0-1</div>
+                        <div class="metric-label">建立制作能力</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">3款</div>
+                        <div class="metric-label">AI工具应用</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">快速迭代</div>
+                        <div class="metric-label">多版本测试</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">低成本</div>
+                        <div class="metric-label">特效制作</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <video controls>
+                    <source src="../../../videos/AIGC-EndingCard-1.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            </div>
+
+            <div class="video-container">
+                <video controls>
+                    <source src="../../../videos/AIGC-EndingCard-2.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            </div>
+
+            <div class="content-section">
+                <h3>项目背景</h3>
+                <p>公司缺乏Ending Card特效制作能力，需要快速低成本解决方案。</p>
+            </div>
+
+            <div class="content-section">
+                <h3>应用策略</h3>
+                <ul>
+                    <li>利用AIGC工具生成特效：Google Nano Banana、即梦、Google VEO</li>
+                    <li>快速迭代多个版本，测试不同视觉风格</li>
+                    <li>0-1建立公司Ending Card制作能力</li>
+                    <li>大幅降低特效制作门槛和成本</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>核心成果</h3>
+                <ul>
+                    <li>成功为公司0-1做出Ending Card特效</li>
+                    <li>展示了AIGC工具应用能力和快速学习能力</li>
+                    <li>证明了AI工具能大幅降低特效制作门槛和成本</li>
+                    <li>0-1能力比优化现有流程更有价值</li>
+                </ul>
+            </div>
+
+            <div class="tags">
+                <span class="tag">AIGC</span>
+                <span class="tag">特效制作</span>
+                <span class="tag">0-1能力</span>
+                <span class="tag">快速学习</span>
+                <span class="tag">AI工具</span>
+            </div>
+        </section>
+
+        <!-- 作品5: KOL合作 -->
+        <section id="kol" class="portfolio-item">
+            <div class="portfolio-header">
+                <div class="portfolio-title">
+                    <h2>iLAND × 头部KOL置换合作 - 380万播放爆款</h2>
+                    <div class="portfolio-meta">
+                        <span class="meta-item">📱 TikTok</span>
+                        <span class="meta-item">🌍 欧美娃娃屋垂直市场</span>
+                        <span class="meta-item">📅 2个月开发周期</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics">
+                <h3>核心数据</h3>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-value">380万</div>
+                        <div class="metric-label">播放量</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">323K</div>
+                        <div class="metric-label">互动量</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">免费</div>
+                        <div class="metric-label">置换成本</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">年度最佳</div>
+                        <div class="metric-label">类目排名</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <video controls>
+                    <source src="../../../KOL/TikTok-iLAND-KOL-合作视频.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            </div>
+
+            <div class="image-grid">
+                <img src="../../../KOL/TikTok-iLAND-KOL-播放量.png" alt="播放量数据">
+                <img src="../../../KOL/TikTok-iLAND-KOL-互动量.png" alt="互动量数据">
+            </div>
+
+            <div class="content-section">
+                <h3>项目背景</h3>
+                <p>目标KOL对中国品牌有抵触情绪，已读不回私信/邮件/评论，但曾在视频中使用过我们产品却故意不提及品牌。垂直领域用户普遍喜欢DIY，讨厌中国批量玩具。</p>
+            </div>
+
+            <div class="content-section">
+                <h3>开发策略</h3>
+                <ul>
+                    <li>以产品为饵，避免过度强调品牌</li>
+                    <li>用社媒内容吸引KOL注意：专门为她喜欢的产品制作视频，成功推送到她面前，获得回关</li>
+                    <li>量身定制内容方案和推品策略，在2个月开发期中建立信任</li>
+                    <li>引导而非强制创作方向，来回交流十几封邮件，共同构思吸引人的内容</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>核心成果</h3>
+                <ul>
+                    <li>KOL主动认真创作，从开头到中间全程夸赞产品</li>
+                    <li>视频播放量380万，互动量323K，成为本类目年度最佳商业合作案例</li>
+                    <li>免费置换也能做出百万爆款，关键在于精细化开发和内容共创</li>
+                    <li>内容制作能力让我比传统红人运营更擅长给出切实建议，把控合作方向</li>
+                </ul>
+            </div>
+
+            <div class="tags">
+                <span class="tag">KOL开发</span>
+                <span class="tag">免费置换</span>
+                <span class="tag">380万播放</span>
+                <span class="tag">垂直市场</span>
+                <span class="tag">内容共创</span>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // 移动端导航切换
+        function toggleNav() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // 点击导航链接后关闭移动端菜单
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 图片点击放大
+        document.querySelectorAll('.image-grid img').forEach(img => {
+            img.addEventListener('click', function() {
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 9999;
+                    cursor: pointer;
+                `;
+                
+                const modalImg = document.createElement('img');
+                modalImg.src = this.src;
+                modalImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                `;
+                
+                modal.appendChild(modalImg);
+                document.body.appendChild(modal);
+                
+                modal.addEventListener('click', () => {
+                    document.body.removeChild(modal);
+                });
+            });
+        });
+
+        // 滚动时高亮当前导航
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.color = '#333';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = '#667eea';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
